@@ -847,6 +847,8 @@ def classification_bus_mci(df):
 		Is there a Gain between B (new B variable) and b (old B variables)?
 	2. Build MLP Input Bus + Age, SCD etc Output: MCI 
 	"""
+	import seaborn as sns
+	from scipy.stats import pearsonr
 	# CSV for classification do not need Brain volumetry
 	print('Running classification_bus_mci ....  \n')
 	df_orig = df.copy()
@@ -857,7 +859,7 @@ def classification_bus_mci(df):
 	colsofinterest = ['idpv', 'sexo','edad_visita1', 'lat_manual','edad_ultimodx',\
 	'apoe', 'nivel_educativo','anos_escolaridad','familial_ad','dx_corto_visita1',\
 	'dx_corto_visita5','mmse_visita1','cn_visita1','animales_visita1',\
-	'depre_num','sue_noc','imc', 'dx_corto_visita5','fcsrtrl1_visita1', \
+	'depre_num','sue_noc','imc','fcsrtrl1_visita1', \
 	'fcsrtrl2_visita1', 'fcsrtrl3_visita1','fcsrtrl1_visita5', \
 	'fcsrtrl2_visita5', 'fcsrtrl3_visita5','scd_visita1','scd_visita5']
 	df = df[colsofinterest]
@@ -885,14 +887,28 @@ def classification_bus_mci(df):
 	df_1n['bus_Integral_visita1'] = weights[0]*df_1n['bus_int_visita1'] + \
 	weights[1]*df_1n['bus_parint1_visita1'] + \
 	weights[2]*df_1n['bus_parint2_visita1']
+	df_1n['bus_Integral_visita5'] = weights[0]*df_1n['bus_int_visita5'] + \
+	weights[1]*df_1n['bus_parint1_visita5'] + \
+	weights[2]*df_1n['bus_parint2_visita5']
+
 	df_1n['bus_Integral_visita1'].iloc[4]
 	df_1n[['bus_sum_visita1','bus_Integral_visita1']].describe()
 	df_1n[['bus_sum_visita1','bus_Integral_visita1']].idxmax()
 	df_1n[['bus_sum_visita1','bus_Integral_visita1']].idxmin() #97 mci year 1 Ad year 5 edad_visita1 72.32
 	# Plot distros and calculate correlations sum versus Integral ~ dx_corto_v5
+	sns_plot = sns.pairplot(df_1n[['bus_sum_visita1','bus_Integral_visita1']], diag_kind="kde")
+	sns_plot.savefig(os.path.join(figures_dir, "sns_classif15" + ".png"))
+	r_sum, _ = pearsonr(df_1n['bus_sum_visita1'], df_1n['dx_corto_visita5'])
+	r_Int, _ = pearsonr(df_1n['bus_Integral_visita1'], df_1n['dx_corto_visita5'])
+	gain = -r_Int/-r_sum -1
 	
+	pearsonr(df_1n['bus_Integral_visita1'], df_1n['bus_Integral_visita5'])
+	pearsonr(df_1n['bus_sum_visita1'], df_1n['bus_sum_visita5'])
 
-
+	print('The gain in the Pearson correlation is: %.4f pc' %(gain*100))
+	sns_plot = sns.pairplot(df_1n, x_vars=['bus_sum_visita1'], y_vars=["bus_Integral_visita1"],hue="dx_corto_visita5", height=5, aspect=.8, kind="reg");
+	sns_plot.savefig(os.path.join(figures_dir, "sns2_classif15" + ".png"))
+	pdb.set_trace()
 
 def main():
 	""" Buschke paper that build a new B. extt based score and we study the associatiob

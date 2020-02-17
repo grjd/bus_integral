@@ -1,0 +1,484 @@
+\documentclass[9pt,twocolumn,twoside]{pnas-new}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage{float}
+\usepackage{enumitem}
+%\usepackage[protrusion=true, expansion=true]{microtype}
+%\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{url, lipsum}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{siunitx}
+% Use the lineno option to display guide line numbers if required.
+% Note that the use of elements such as single-column equations
+% may affect the guide line number alignment. 
+
+\templatetype{pnasmathematics} % Choose template 
+% {pnasresearcharticle} = Template for a two-column research article
+% {pnasmathematics} = Template for a one-column mathematics article
+% {pnasinvited} = Template for a PNAS invited submission
+
+\title{The Buschke Integral: A new clinically validated measure for memory assessment}
+
+% Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
+\author[a]{Jaime G\'omez-Ram\'irez}
+\author[a]{Marina \'Avila Villanueva} 
+\author[a]{Miguel \'Angel Fern\'andez-Bl\'azquez}
+
+\affil[a]{Centre for Research in Neurodegenarative Diseases, Fundaci\'on Reina Sof\'ia, Valderrebollo, 5, 28031 Madrid, Spain}
+%\affil[b]{Affiliation Two}
+%\affil[c]{Affiliation Three}
+
+% Please give the surname of the lead author for the running footer
+\leadauthor{G\'omez-Ram\'irez} 
+
+% Please add here a significance statement to explain the relevance of your work
+\significancestatement{Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the Significance Statement is to explain the relevance of the work in broad context to a broad readership. The Significance Statement appears in the paper itself and is required for all research papers.}
+
+% Please include corresponding author, author contribution and author declaration information
+\authorcontributions{Please provide details of author contributions here.}
+\authordeclaration{Please declare any conflict of interest here.}
+\equalauthors{\textsuperscript{1}A.O.(Author One) and A.T. (Author Two) contributed equally to this work (remove if not applicable).}
+\correspondingauthor{\textsuperscript{2}To whom correspondence should be addressed. E-mail: author.two\@email.com}
+
+% Keywords are not mandatory, but authors are strongly encouraged to provide them. If provided, please include two to five keywords, separated by the pipe symbol, e.g:
+\keywords{Keyword 1 $|$ Keyword 2 $|$ Keyword 3 $|$ ...} 
+
+\begin{abstract}
+Please provide an abstract of no more than 250 words in a single paragraph. Abstracts should explain to the general reader the major contributions of the article. References in the abstract must be cited in full within the abstract itself and cited in the text.
+\end{abstract}
+
+\dates{This manuscript was compiled on \today}
+\doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
+
+\begin{document}
+
+% Optional adjustment to line up main text (after abstract) of first page with line numbers, when using both lineno and twocolumn options.
+% You should only change this length when you've finalised the article contents.
+\verticaladjustment{-2pt}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+% Table \ref{tab:buscorr}
+
+\begin{center}
+\captionof{table}{Correlation of Buschke measures with conversion.}
+\begin{tabular}{SSSSSSSSS} \toprule
+    {$Measure$} & {$Conv_{Y1}$} & {$Conv_{Y2}$} & {$Conv_{Y3}$} & {$Conv_{Y4}$} & {$Conv_{Y5}$} & {$Conv_{Y6}$} & {$Conv_{Y7}$} & {Bus$y1$- yy}  \\ \midrule
+    \textbf{{Bus$\int$}} &-0.4558	&-0.5363	&-0.5756	&-0.6474	&-0.6712	&-0.6356 &-0.6601 &-0.3332 \\
+    {Bus$\sum$} &-0.4508	&-0.5295	&-0.5701	&-0.6398	&-0.6577	&-0.6059	&-0.6342	&-0.3189  \\ \midrule
+    {Bus-delayed} &-0.4640 &-0.5449	&-0.6061	&-0.6695	&-0.726141	&-0.6724	&-0.7204	&-0.3126 \\  
+    {Bus-p$1$}  &-0.3443	&-0.4101	&-0.4606	&-0.5331	&-0.5474	&-0.4618	&-0.5089	&-0.2144    \\ 
+    {Bus-p$2$}  &-0.4299	&-0.4926	&-0.5246	&-0.5944	&-0.6195	&-0.5886	&-0.6262	&-0.2959 \\
+    {Bus-p$3$}  &-0.4325	&-0.5198	&-0.5689	&-0.6418	&-0.6679	&-0.6388	&-0.6560	&-0.3256  \\  \bottomrule
+\end{tabular}
+\end{center}
+
+% If your first paragraph (i.e. with the \dropcap) contains a list environment (quote, quotation, theorem, definition, enumerate, itemize...), the line after the list may have some extra indentation. If this is the case, add \parshape=0 to the end of the list environment.
+%\section*{Introduction}
+\dropcap{T}he three main processes of memory are encoding, storage and recalling, Within recall psychologists distinguish between free recall, cue recall and serial recall.
+%Ebbinghaus discovered that multiple learning, over-learning, and spacing study times increased retention of information
+We own to Tulving the distinction between episodic and semantic memory, and also the encoding specificity principle which states that a person is more likely to recall information if the recall cues match or are similar to the encoding cues. 
+%ojo literal wikipedia https://en.wikipedia.org/wiki/Recall_(memory)
+The anterior cingulate cortex, globus pallidus, thalamus, and cerebellum show higher activation during recall than during recognition which suggests that these components of the cerebello-frontal pathway play a role in recall processes that they do not in recognition. The specific role of each of the six main regions in episodic retrieval is still unclear, but some ideas have been suggested. The right prefrontal cortex has been related to retrieval attempt;[28][29] the medial temporal lobes to conscious recollection;[30] the anterior cingulate to response selection;[31] the posterior midline region to imagery;[28][31][32][33] the inferior parietal to awareness of space;[34] and the cerebellum to self-initiated retrieval .[35]
+
+There is a number of factors that affect recall: attention, motivation, interference, context, state-dependent memory, gender (Women perform better than males on episodic memory tasks including delayed recall and recognition. However, males and females do not differ on working, immediate and semantic memory tasks.) physical activities
+
+
+%ojo +-lit from margolin1992cognitive
+Many years ago Lashley \cite{lashley1929brain} set out to find the engram the putative site of memory storage and his failure toi find a specific location (in rats) led him to the conclussion that memories were spatially distributed  throughout the brain. Squire \cite{squire2004memory} pointed out to methodological shortcoming in Lashley's work but in general terms his conclusions are considered valid.
+One suggestion is that engrams are stored in cerebral cortex near the regions where the stimuli is processed eg visual memories near occipital, auditory components in auditory cortex and so for. 
+By exclusion (HM) we know that the memory abilities preserved by amnesic subjects would not be dependent of removed areas (hippocampus, or medial dorsal nucleus). Habit formation is known to be mediated by the amygdala, conditioning of motor responses in the basal ganglia and working memory to frontal and parietal regions \cite{margolin1992cognitive} pg. 178. 
+
+Amnesia or memory disorders can be grouped in terms of etiology or in terms of neuroanatomy. The former we can mention AD, anoxia, etc.In terms of neuroanatomy some have distinguished between hippocampal and diancephalic amnesia (mammalian bodies and or thalamus)
+Where are memories stored in the brain? Broadly speaking a classification can be made:
+
+\subsection*{The neuroanatomy of memory}
+%https://qbi.uq.edu.au/brain-basics/memory/where-are-memories-stored
+
+
+
+\begin{itemize}
+%\item
+\item Explicit declarative or episodic memories and semantic memories: hippocampus, neocortex and amygdala.
+\begin{itemize}
+	\item Hippocampus is part of the temporal lobe and is where explicit or episodic memories are formed and indexed for later access. (we know this thanks to Henry Molaison who had his medial temporal lobe (hippocampus, amygdala, and enthorinal cortex) surgically removed to treat his epilepsy, rendering him amnesic but with capacity to learn motor tasks)
+	\item Neocrotex is the neural tissue that forms the outside surface of the brain. Transfer from the hippocampus (temporary) to the neocortex (general knowledge) may happen during sleep
+	\item Amygdala is an almond shape structure above the hippocampus and attaches emotional significance to memories, this is why memories associated with grief , shame etc are difficult to forget, characterizing the path amygdala, hippocampus, neocortex may explain how memories are retained. The amygdala not only adds strength to the emotional memory, it also plays a role in forming new memories, specially related to fear. Fearful memories are able to be formed after a few repetitions
+\end{itemize} 
+\item Implicit memories (eg motor) cerebellum and basal ganglia
+	\begin{itemize}
+		\item cerebellum located at the rear base of the brain, important in motor control eg the vestibulo-ocular reflex let us maintain our gaze on a location as we rotate our heads.
+		\item Basal ganglia lying deep within the brain and involved in habit formation, reward processing and learning. They co-ordinate sequences of motor activity, it is the most affected region in Parkinson's. disease
+	\end{itemize}
+\item Short-term working memory prefrontal cortex
+	\begin{itemize}
+		\item Prefrontal cortex seats at the very front of the brain and it is the most recent addiction to the mammalian brain, holding information activates the pFC, there seems to exist a functional separation between left and right sides of the pFC.
+	\end{itemize}  
+\end{itemize}
+
+Note that another classification of memories is Long term memories including Explicit and Implicit and short term memories. Short term (primary or active memory) is the capacity for holding, but not manipulating, a small amount of information in mind in an active, readily available state for a short period of time.  The duration of short-term memory (when rehearsal or active maintenance is prevented) is believed to be in the order of seconds (Miller's law magical number 7 +-2 and more recently Cowan 4+-1.).
+The modal model of memory was developed in the 1960s by Shiffrin and assumed that all memories pass from a short-term to a long-term store after a small period of time. The exact meachanisms by which this transfer occurs is unclear.
+
+One evidence of the existence of short-term store comes from anteroretrogade amnesia which is the inability to learn new facts and episodes, patients with this amnesia (eg HM) have intact its ability to retain small amounts of information over small time scales (30 seconds) but are unable to form long term memories. Other evidence comes from distraction interventions, a distraction may impair memory 3-5 most recently learned words of a list (to be stored in short  term memory) while leaving the recall for words earlier in the list intact (to be stored in long term memory). See, however, \cite{bjork1974recency}, for a criticism of the existence of short term memory using a distractor task. But not everyone agrees that short and long term memories vary independently, the unitary model states that memory is unitary over time scales from milliseconds to years. Admittedly it has been difficult to demarcate the a clear boundary between short and long term memories.
+
+The biological basis STM: stimuli are coded in STM using transmitter depletion, the stimulus activates a spatial pattern of neurons and as they fire they deplete the available neurotransmitters, the pattern of depletion is iconic (WOW!) representing the stimulus functioning as a memory trace. As the neurotransmitters reuptake mechanisms kick in to restore the pre stimulus level, the memory trace decays \cite{grossberg1971pavlovian}.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[keepaspectratio, width=.5\linewidth]{figures/memory_types}
+        \caption{Memory types under the modal or multi-store or Atkinson-Shiffrin model. Alternatively, the Fergus Craik and Robert Lockhart in 1972, and posits that memory recall, is a function of the depth of mental processing, on a continuous scale from shallow (perceptual) to deep (semantic). Under this model, there is no real structure to memory and no distinction between short-term and long-term memory. Another classification is the to Multiple Trace Theory, long-term episodic memories are stored in hippocampus, so mild AD patients, even MCI, will lose these kind of "long-term" memories. Long term semantic memories will be lost in parallel with neocortex neuron death.
+        %http://www.human-memory.net/types.html
+        } 
+        \label{fig:b}
+\end{figure}
+
+Figure \ref{kde_bus} shows the KDE of the Buschke Integral measure each year.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[keepaspectratio, width=.5\linewidth]{figures/KDE_bus_int}
+        \caption{KDE of the Buschke Integral measure each year
+        } 
+        \label{fig:kde_bus}
+\end{figure}
+
+
+
+\section*{Problems and Background}
+How to assess memory performance?
+\begin{itemize}
+\item Assessment of Explicit or episodic memories 
+\begin{itemize}
+  \item Wechsler memory scale(WMS) it has been critizied
+  \item Buschke Selective Reminding Procedure, more sophisticated than WMS, the subject attempts to learn a list a word list across several (3) trials. It allows generation of a variety of scores (sum recall, LTretrieval, ST retrieval ...). The popularity resides in the reduced testing time, word list learning may be better than story recall and separation between retrieval and enter in formation into long term store. Among the criticism is the B. is more a procedure than a test per se (the word list, number of words and number of trials vary widely). Furthermore, B assumes that if a subject fails to to recall a word that has been previosuly recalled in LTM the retrieval failure is a recall failure
+\end{itemize}  
+\item Explicit or Implicit memories (preserved in amnesia)
+\begin{itemize}
+\item  Sentence puzzle completion
+\end{itemize}
+\end{itemize}  
+There are many issues that the memory test assessment elude, for example Metamemory and confabulation. Metamemory is the knowledge one posses about the functioning of the human memory system (for example, if one is using Anki (Hermann Ebbinghaus theory of retention training)). Confabulation is poorly understood, intrusions on list learning may be related to confabulation.
+
+
+
+\section*{The Buschke Integral measure}
+
+The Buschke memory test with free and cued recall is commonly used to assessing cognitive functioning. The Buchske test is of easy realization and can be performed by participants with different levels of impairment and clinical conditions \cite{o200212}, \cite{leitner2017comparison}. The test was originally designed to asses long-term storage (LTS), retrieval from long-term storage (LTR), and recall from short-term storage (STR) \cite{buschke1973selective}.
+
+The Buschke test in the \emph{Vallecas Project} consists in asking the subject to recall a list of words in three occasions separated by distracting periods. First, the experimenter reads a list of 16 words and the subject is immediately asked to recall as many words as possible. Next, the subject is distracted with an interference test to be asked again to recall the original 16 words, the subject is distracted again with another interference test to be asked for the third time to recall the original 16 words.
+
+The score consists in three numbers each computes the number of words that the subject correctly recalled at each time. In order to asses retrieval from short-term storage both the total number of items and the increase/decrease in the scores need to be considered. Two subjects with identical aggregate score could have very different recalling. For example, let us say that we perform the Buschke test in two subjects, subject A and subject B. Subject A recalls 12, 14 and 15 words at each time and subject B has for the same test a score of 15, 14 and 12, both subjects have recalled the same total number of items (41) but memory retention is very different. Subject B shows no memory retention (a decrease in the number of recalled items) while subject A does consolidate her memory (an increase in the number of recalled items).
+It is evident, then, that in order to have an unique score from the three scores described we can't just aggregate the scores since we would be missing whether the subjects recalls or forgets which is what the Buschke memory test is essentially testing for. In order to capture this information we need take into account whether the scores increase, decrease or stationary.
+
+We have defined a model that brings together the aggregate of recalled items and the slope of the curve described by the scores at each trial. 
+From calculus we know that the area under a curve between two points can be found by doing a definite integral between the two points. 
+The three scores in the Buschke are defined in the space of the positive integers, $x \in +\mathbb{Z}^3$, the area under the curve $y = f(x)$ between two points $x=a$ and $x=b$ is the integral between the limits of $a$ and $b$ which gives us the area defined by the region $f(x)$ and the boundaries a and b.
+\begin{equation}
+\int_{x=a}^{x=b}f(x)dx
+\label{eq:defint}
+\end{equation}
+ 
+Coming back to our original problem we need to calculate not only the area between the interval (a,b) corresponding to the first and the third recall scores, but also the area defined between the first and the second scores $(a,h)$ and between the second and the third scores $(h,b)$.  
+Thus, the quantity $S$ we want to compute is defined as:
+\begin{equation}
+S = \int_{a}^{b}f(x)dx + \int_{a}^{h}(f(x) - f(a))dx + \int_{h}^{b}(f(x)-f(h))dx
+\label{eq:buchske}
+\end{equation}
+where the first term on the right side is the area under the curve which gives us the aggregate of the number of items recall, the second and third terms contrary to the first term which is always positive because $y =f(x), y \in [0,16]$, can be negative if the curve $f(x)$ is decreasing, positive if $f(x)$ is increasing or zero in case $f(x)$ remains constant across trials.
+
+Let us see this with an example, for simplicity's sake we assume that the scores are $[0,1,2]$. Figure \ref{fig:b} shows the value of $S$ in three different examples, in each case the area is identical, 2, for a total maximum of 4 but $S$ varies with the slope of the learning curve. On the left, figure \ref{fig:b}-a,
+$S$ is strictly equal to the area cover by the curve because the curve is flat, $S=2$. On the middle figure, \ref{fig:b}-b, the score $S$ is larger than the previous case because the curve is increasing (positive slope), $S=2+1/2+1/2=3$. Finally, the figure on the right side, \ref{fig:b}-c, $S=2-1/2-1/2=1$ capturing that the slope is negative and therefore the subject is not consolidating memory.      
+  
+%https://matplotlib.org/gallery/showcase/integral.html#sphx-glr-gallery-showcase-integral-py
+\begin{figure}[H]
+        \centering
+        \includegraphics[keepaspectratio, width=\linewidth]{figures/fig_buschkewitheqs}
+        \caption{The figure shows the computation of the \emph{Buschke Integral} scores in three scenarios. On the left figure (a) there is no learning because the subject recalls the same number of items each time ($f(x)=1, x=[0,1,2], S=2$), on the middle figure (b) the subjects learns ($f(x)=x, x=[0,1,2], S=3$) and on the right figure (c) the subject forgets items ($f(x)=2-x, x=[0,1,2], S=1$). The maximum score not (shown) is $S=4$ that corresponds with the subject recalling all the two items at each time ($f(x)=2, x=[0,1,2], S=4$).} 
+        \label{fig:b}
+\end{figure}
+
+%Figure \ref{fig:b} calculates the surface of the trapezoids, it is also possible to interpolate and calculate the surface defined by the spline within the x and y axis.
+One advantage of the \emph{Buschke Integral} score $S$ defined here is that it gives us a new scale of memory health condensed in one single number. This allows us to parcel the space of subjects in a larger number of meaningful categories beyond the converter versus no converter classification. The new metric upper bound is 32 (max score per trial $(16)\times (3-1)$ number of points -1) and the minimum 0.
+
+
+\section*{Illustrative example with clinical data}
+The empirical or clinical demonstration of the utility of the score is done in three ways, first calculating the correlation beteeen S and the individual Buschke values(and the sum) with conversion. Second, compute the correlation of the score with hippocampal volume (underlying the capacity of operational memory) and finally the robustness of the score in time, that is, we compare the variability in individual basis across years, we expect to have less variability of S compared to individual scores in subject basis. The range of scores is different (16 vs 32) so we calculate the inter years difference and normalize 0,1.
+%The most important EDA on time series data is to identify trend, seasonality & correlation. 
+
+%Plot longitudinal time series (histograms + mean sigma) and do EDA of time series.
+
+EDA:: Calculate volatility of time series $x_t , t=1,7$, test for stationarity but they are really short.
+Normalize (standarize) to have mean 0. Normalize values $X_{1}$, values of score for year 1 all subjects, a value of this variable is $X^{s=1180}_{1}$. The multidimensional i, $n=7, X_{i}$ has subjects visits per year elements $X_1$ has 1180... $X_7$ has 107 elements. From the values we then compute the probability distribution, we can get 10 bins (0, 0.1,0.9,1) or $100 (0,0.01,...0.99,1)$. Finally we calculate the KL distance inter years for each score $KL(P_i| P_{i-k})$, for example P is the prob dis of sum of B. Plot the distributions, and show the shadow areas of MI.
+
+We do KL also for new B $KL(Q_i| Q_{i-k})$, we expect that the MI interyears of the new B is larger than sum of B.
+
+
+Once we have justify the conceptual soundness of the \emph{Buschke Integral} score we need to study the clinical utility of term, to do so we will take advantage of the large dataset \emph{Vallecas Project}.
+
+We compare the correlation between conversion to MCI and S, and single values of the Buschke test and other cognitive performance test. We also compare S with other aggregates of the Buschke test like the sum or the arithmetic and the geometric mean.
+
+Calculate the DTW between S and a conversion or memory indicator across years, for example the ICV or the hippocampal volume. 
+Plot the distribution of S $\mu = 16.37, \sigma=5.1770$, get the left tail $\mu + n*\sigma$ (worst recallers) and the right tail (best recallers) and study neurophysiological differences. Look at, hippocampal siuze, connectivity. YS: WHERE to look at
+
+-plot the kde of bus int, use sns pairplot when i have the hippo sizes script
+
+-correlation with conversion
+- kullback leiber of distribution inter years compared with other measures (sum etc) see if distance is smaller ion. b int
+- correlation with brain hippocampus
+
+%https://kids.frontiersin.org/article/10.3389/frym.2017.00071
+%https://www.scientificamerican.com/article/does-size-matter-for-brains/
+
+
+
+
+%Rehearsal is the process where information is kept in short-term memory by mentally repeating it. When the information is repeated each time, that information is reentered into the short-term memory, thus keeping that information for another 10 to 20 seconds (the average storage time for short-term memory)
+\subsection*{Correlation with conversion}
+We can study the validity and or relevance of the new variables ( B new and b for old buschke) via Regression and Classification.
+
+In regression we map the function $f: R \to Z, g: Z \to R$, f from the  domain of the Brain to Cognition (B or b test score) and g from the domain of Cognition to the Brain volume/surface (or atrophy) of a tissue (eg. hippocampus or cortical surface). In f, the atrophy in a  sensitive structure, let us say the left hippocampus it is expected to be informative (correlate, cause) to cognition, in this case measured with the B. test or other scores (number, animals recounting etc.). This discussion of association vs causation (f vs g) opens the necessity to study the direction of the arrow ($f: R \to Z, g: Z \to R$)Does the brain causes the mind or viceversa? Intuitively we would say that the function we are looking for is f or brain atrophy causes a measurable effect in cognition. But the only way to investigate this is with :Pearl's graphs.
+%YS book of why, study whether fo or g otr noen
+
+In this section we focus on classification, we set aside the Mind-Body problem to deal with the more mundane question of Can we propose a new metric based on the Buschke test that is non worse predictor of cognitive decline than the usual Buschke metrics (sum or average of the scores).
+First of all we need to study if there is a correlation at all between the Buschke scores (B and b) and MCI. Thus we study R(b1,MCIn) and R(n1,bn) for b and B (new and old Buschke scores) and compare if there is a gain in using b versus using B. We can as well add age and other variables as predictors: b1 + others -> MCIn
+
+Next we need to build a system -classifier- that learns the function f, we use SVM and MLP.
+f(b) = MCI whatever it is we approximate it with MLP (Universal Approximator Theorem), the input should include Age, SCD and other features that can help improve the performance of the classifier.
+
+
+
+
+
+
+\subsubsection*{Stability(Volatility) of the Buschke Integral}
+%divergence is the additional bits required to encode information losslessly.
+The Kullback-Leibler Divergence or relative entropy. Entropy is a measure of the uncertainty of a random variable, entropy is the minimum number of bits required to encoded the information losslessly contained in the message (random variable). Note that a probability does not contain information per se,,m that information that is being encoded comes from the alphabet, in our case a random variable x, which has some probability distribution p(x). It is important to reckon that t is the variable or the message who contains the information not the probability distribution.
+
+Relative entropy definition: is a measure of the distance between two distributions, it is an expected logarithm of the likelihood ratio. the relative entropy D(p||q) is a measure of the inefficiency of assuming that the distribution q, when the true distribution is p.
+relative entropy is not a distance because is not symmetric and does not hold the triangle inequality, relative entropy is non negative.
+%Why do we Optimize KL Divergence? p_optimal = argmin_{p} D(q||p) where q is the distribution obtained from the observations.
+The importance of KL-divergence lies in its ability to quantify how far off your estimation of a distribution may be from the true distribution.
+
+The KL is easy to derived from the entropy formal. 
+$H(x) = -\sum_{i=1}^{N} p(x_i)\log(p(x_i))$, if we replace p by p-q, $D(p||q) = \sum_{i=1}^{N} p(x)(\log(p(x)-\log(q(x)))$ which the expectation of the log differences $D(p||q) =E[log(p(x)) - log(q(x))]$ and since $\log(a) -\log(b) = \log(a/b)$, 
+$D(p||q) = \sum_{i=1}^{N}  p(x_i)(\log(\frac{p(x_i)}{q(x_i)}))$. 
+
+Variational Bayesian method, including Variational Autoencoders, use KL divergence to generate optimal approximating distributions, allowing for much more efficient inference for very difficult integrals (Monte Carlo simulations can help solve many intractable integrals needed for Bayesian inference).
+
+%utorial on Variational Autoencoders
+Variational Autoencoders is one of the most popular approaches for unsupervised learning of complicated distributions. VAEs are appealing because they are built on top of standard function approximators (neural networks), and can be trained with stochastic gradient descent
+
+%Table \ref{tab:buskl}
+\begin{center}
+\captionof{table}{Kullback Leiber divergence  between any two years of Buschke $\int$ measures.}
+\begin{tabular}{SSSSSSSS} \toprule
+    {Bus$\int$ KL divergence} & {${Y1}$} & {${Y2}$} & {${Y3}$} & {${Y4}$} & {${Y5}$} & {${Y6}$} & {${Y7}$} \\ \midrule
+    {${Y1}$} 	&	&0.0486	&0.1047	&0.22642	&0.35124 &0.4647	&0.31137 \\
+    {${Y2}$} 	&	&		&0.0731	&0.16213	&0.2617	&0.35320	&0.267877 \\ %\midrule
+    {${Y3}$}    &	&		&		&0.0747		&0.1301	&0.19278	&0.13650 \\  
+    {${Y4}$}  	&	&		&		&			&0.0673	&0.09438	&0.01570 \\ 
+    {${Y5}$}  	&	&		&		&			&		&0.0493		&0.0014831 \\
+    {${Y6}$}  	&	&		&		&			&		&			&0.002535 \\ \bottomrule
+\end{tabular}
+\end{center}
+
+%YS hacer lo mismo para la suma y luego el heatmap, conayzo!!
+\begin{center}
+\captionof{table}{Kullback Leiber divergence  between any two years of Buschke $\sum$ measures.}
+\begin{tabular}{SSSSSSSS} \toprule
+    {Bus$\int$ KL divergence} & {${Y1}$} & {${Y2}$} & {${Y3}$} & {${Y4}$} & {${Y5}$} & {${Y6}$} & {${Y7}$} \\ \midrule
+    {${Y1}$} 	&	&0.0538	&0.15375	&0.2931	&0.42632 &0.50109	&0.52316 \\
+    {${Y2}$} 	&	&		&0.09297	&0.2203	&0.33169	&0.402171	&0.538717663344 \\ %\midrule
+    {${Y3}$}    &	&		&		&0.10608851934		&0.158072527127	&0.208523084715	&0.358902876926 \\  
+    {${Y4}$}  	&	&		&		&			&0.0396309934133	&0.0906807541196	&0.20500195155 \\ 
+    {${Y5}$}  	&	&		&		&			&		&0.0733925381228		&0.217257187389 \\
+    {${Y6}$}  	&	&		&		&			&		&			&0.165396444758 \\ \bottomrule
+\end{tabular}
+\end{center}
+
+
+\section{Fitting the model with MRI data}
+In section we proposed a model for the Buschke Integral, here we will perform the fitting of the linear equations to MRI data. The objective is to estimate the parameters of the model function to best fit the data set. The data set consists of n points $X_i,Y_, i = 1, ..., n$, where $X_i$ is a vector of there variables, $X_{1i},X_{2i},X_{3i}$, $X_{1i}$ is the sum of the three Buschke scores, $X_{2i}$ tis the area between the second and the first score and $X_{3i}$ the area between the third and the second score. $Y_i$ is the size of the hippocampus or other relevant brain structure.
+The model function has the form $f(X,\beta)$  where $m, (m=3)$ adjustable parameters are held in the vector $\beta$.
+The goal is to find the parameter values for the model that best fits the data. The fit of a model to a data point is measured by its residual, defined as the difference between the actual value of the dependent variable and the value predicted by the model: 
+\begin{equation}
+r_i = y_i - f(x,\beta)
+\end{equation}
+We use the least-squares method to find the optimal parameter values by minimizing the sum of squared residulas
+
+\begin{equation}
+S = \sum_{=1}^{n} r_{i}^{2}
+\end{equation}
+
+In our three dimensional model we need to find the optimal set of parameters that best fit the data
+\begin{equation}
+y_i = \beta_0+ \beta_1 x_{1i} + \beta_2 x_{2i} + \beta_3 x_{3i}  
+\end{equation}
+
+Since we have an overdetermined system, n equations and $m=4$ unknown parameters $\beta_0,\beta_1,\beta_2,\beta_3$, the closed-form solution will give us the estimate of the parameters.
+Solving the least squares problem, we have:
+\begin{equation}
+\hat{\beta} = (X^TX^{-1})X^TY  
+\end{equation}
+In Section \ref{sse:leastexample} we perform least squares to estimate the parameters that best fit the MRI data.
+
+
+
+
+\subsubsection*{Correlation with brain and hippocampal size}
+\label{sse:leastexample}
+
+We perform structural segmentation of T1 weighted images for 900 subjects of the \emph{Vallecas Project} scanned in year 1.
+%fsl_anat script is in /usr/local/fsl/bin/fsl_anat 
+%We used parameters by default in ther fsl_anat, it may be interestign to rerun (at least some) using strongbias=yes
+%fsl_anat --strongbias -d pv_0001_y1.anat. Note that -d update an existing result, but if it sees the first_results dir will not overwrite it, Thus to investigate the strongbias parameter  rerun from scratchthat is not existing .anat directory
+%See my evernote: https://www.evernote.com/Home.action?login=true#n=2d10e9fc-afa0-40ef-ad0b-da47935ec463&s=s263&ses=1&sh=5&sds=5&x=segment&
+The automated segmentation goes through the following stages:
+\begin{enumerate}  
+	%0 The input image is copied in .anat and renamed {T1}.nii.gz (-t T1,T2,PD), we work with T1 now
+	\item Reorinetation to the standard (MNI) orientation, \emph{fslreorient2std} it swaps axes around maintaining the correct left-right relationships so that x=left-right, y=anterior-posterior and z=superior-inferior. 
+	%size T1 < T1_orig== T1_fullfov, T1 reoriented and cropped is small in size than the original image because we cut the neck. e. T1.nii.gz is the averaged and aligned image file. 
+	\item Cropping to remove the neck, this is a necessary step prior to brain extraction. 
+	%\emph{robustfov} looks at axial slices in the superior direction (starting at the edge of the volume and moving towards the centre) and determines whether a slice contains only noise or signal plus noise. Once it finds the first consecutive slices that contain signal plus noise it then takes that as the position of the top of the head and then extracts a fixed size of FOV in the superior-inferior direction down from the top of the head, which should cover the brain but stop short of the jaw and neck
+	\item Bias field correction 
+	%  I used strongbias = no good if the field is not strong which is good for 1-5T. 
+    %For high-field or multi-coil array is better to use strongfield=yes. 
+    %For my MRI, 3T and not multi-coil what to use?
+	%The bias-corrected version of the image is called T1_biascorr
+	\item Registration to standard space computing both linear registration (FLIRT algorithm) and non-linear registration (FNIRT algorithm)
+	%do_nonlinreg=yes call to [fnirt], [flirt] is always run also for non linear registration
+	%creates the images: T1_to_MNI_lin (the result of the linear reg), T1_to_MNI_nonlin(the result of the non linear reg)
+	%T1_to_MNI_nonlin_field (non-linear warp field) , T1_to_MNI_nonlin_jac (Jacobian of the non-linear warp field)
+	%and T1_vols.txt containing a scaling factor and brain volumes, based on skull-constrained registration, suitable for head-size normalisation (as the scaling is based on the skull size, not the brain size). 
+	\item Brain Extraction in two steps. First, the BET algorithm obtains a brain mask which can be coarse to then perform the brain extraction transforming standard-space mask to the input image using the FNIRT (non-linear) registration.
+	%This step can be interactive changing the threshold : You must adjust the threshold for the extraction (-f) to assure that the skull is removed while the cortical surface is left in tact. This will require running BET multiple times to assure that it is satisfactory. 
+	%run $FSLDIR/bin/bet ${T1} ${T1}_initfast2_brain -m -f 0.1 (by default betfparam=0.1)
+	% 0.1 is overincusive, it will get a very rough brain which means it will likely get portions of the skull(the larger the f eg 0.8 the most brain restricted) but we use 0.1 because we refibne after with FNRIT
+	%produces: T1_biascorr_brain and T1_biascorr_brain_mask
+	\item Segmentation of tissue-type segmentation (FAST algorithm)
+	%produces: T1_biascorr - refined again in this stage, (CSF) T1_fast_pve_0, (Gray) T1_fast_pve_1, (White)T1_fast_pve_2 - partial volume segmentations (CSF, GM, WM respectively) and T1_fast_pveseg - a summary image showing the tissue with the greatest partial volume fraction per voxel
+	\item Subcortical Segmentation (FIRST algorithm)
+	%T1_subcort_seg - summary image of all subcortical segmentations, T1_biascorr_to_std_sub.mat - a transformation matrix of the subcortical optimised MNI registration
+	%All the other ouputs in first_results subdir: T1_first_all_fast_firstseg == T1_subcort_seg and btk, vbars for each region, need to be converted to .nii
+\end{enumerate}
+
+
+\paragraph*{Closed Form expression}
+%https://stats.stackexchange.com/questions/70848/what-does-a-closed-form-solution-mean
+An equation is said to be a closed-form solution if it solves a given problem in terms of functions and mathematical operations from a given generally accepted set.  An example of a closed form solution in linear regression would be the least square equation.
+Most estimation procedures involve finding parameters that minimize (or maximize) some objective function. For example, with OLS, we minimize the sum of squared residuals.Sometimes this problem can be solved algebraically, producing a closed-form solution. With OLS, you solve the system of first order conditions and get the familiar formula (though you still probably need a computer to evaluate the answer).
+
+
+\paragraph*{CODE steps}
+The dataset is the output of Freesurfer, selecting only those that had visits one and six and with the longitudinal pipeline. (do not forget to run the longitudinal protocol if there some new cases ).
+Once we have the dataset which must include longitudinal estimates of volumes,m surface etc. we need to calculate the three variables required for the Buschke Integral $X_S = \{x_1, x_2,x_3\}$, where $x_1$ is the sum or integral between a and b, $x_2$ is the definite integral between h and a and $x_3$ is the definite integral between b and h. (a. 1st, h. 2nd b. 3rd measurement of the Buschke test).
+
+Third, we estimate the weights of $X_S$ that best adjust to the brain correlate: hippocampal atrophy or other system atrophy to determine, for example ratio, sum or product (to determine) relationship between hippocampus and frontal cortex. 
+Thus, we try to find $\hat{\beta}$ argmin $ \hat{\beta} \frac{1}{2m} \sum (h(\beta, x^i) - y^i)^2)$ 
+Now we have the analytical expression we were looking for. The Buschke integral is: 
+$X_S =  \hat{\beta_0} + \hat{\beta_1}x_1 + \hat{\beta_2}x_2 + \hat{\beta_3}x_3$.
+With this new arialbe we can study how well, in relative terms with toither variables, it predicts hippocampal atrophy. Compute correlation (geometric correlation -non linear- and others) and build model(s) that predict atrophy. Finally we need to verify that this new variable his better than at least dummy variables, for example it is unrelated to the atrophy of areas that got nothing to do with episodic memory.
+
+\paragraph*{SVM}
+% Geron Chapter 5, pg 155
+SVM is capable of both linear and non linear classification, regression and outliers detection. SVM is well suited for complex but small-medium sized datasets.
+SVM intuitively is fitting the widest possible street between the classes (large margin classification). 
+The decision boundary if fully determined (or supported) by the instances located on the edge of the street, which means if I add points off the street will not affect the decision boundary at all.
+These instances (touching the margin of the street) are the \emph{support vectors}. SVM are sensitive to feature scales (use StandardScaler).
+
+If we impose all the instances be off the street we are doing hard margin classification. Hard MC classification only works if instances are linearly separable another problem is that it is very sensitive to outliers.
+Hard-Soft can be regulated with the hyperparameter C. low C, margin large (many instance may end up in the street). C large, fewer margin violations but smaller margin. But it seems likely that low C (wide street) will generalize better than a narrow street.
+C too large(narrow street) likely SVM is overfitting -> decrease C.
+
+%03/02/2020
+SVM is similar to logistic regression in that it is driven y the affine transformation 
+\begin{equation}
+w^Tx + b
+\end{equation}
+but unlike logistic regression SVM does not provide probabilities but it outputs a class identity. The SVM predicts that the example belongs to the positive class when $w^Tx + b >0$, otherwise is in the negative class.
+The innovation of SVM is the \textbf{kernel trick}, the KT consists on the observation that many ML algorithms can be written exclusively in terms of dot product between examples. For example, the linear(affine) function of SVM can be rewritten as
+
+\begin{equation}
+w^Tx + b = b + \sum \alpha_i x^T x^{(i)}
+\end{equation}
+where $x^{(i)}$ and $\alpha_i$ is a vector of coefficients. This allows us to rewrite x by the output of a given feature function $\psi(x)$ and the dot product with a function $k(x,x^{(i)}) = \psi(x)\psi(x)^{(i)}$.
+Now we can make predictions using the function 
+
+\begin{equation}
+f(x) = b + \sum \alpha_i k(x, x^{(i)})
+\end{equation}
+
+The kernel-based function is equivalent to preprocessing the data by applying $\phi()$ to all inputs, then learning a linear model in the new transformed space. The kernel trick allows us to learn models that are non linear as a function of x (the above function is non linear with respect to x) and therefore using convex optimization which are guaranteed to converge efficiently (advantage vs NN). This is because $\psi$ is fixed and we optimize only for $\alpha$.
+
+Drawbacks of kernel machines: the cost of evaluating the decision function is linear in the number of training examples, because the i-th example contributes a term $\alpha_i k(x, x^{(i)})$  to the decision function. Kernel machines with generic kernel struggle to generalize well, indeed the modern incarnation of deep learning was designed to overcome the  limitations of kernel machines. In \cite{hinton2006fast} Hinton showed that a NN outperform the RBF kernel SVM on the MNIST benchmark.
+
+the kernel trick is based on the idea of using a linear model to fit nonlinear data. A simple way to do this is transforming the data, for example add powers to each feature as a new feature, to then train a linear model on this extended set of features. This technique is called polynomial regression and is capable of finding relationships between features because it adds all combinations of features to the given degree. For example for features $x_1, x_2$ with degree 3 we have $x_1,x_2, x_1^{2}$ and $x_{2}^2$. For degree d and n features we will have a total of $\frac{(n+d)!}{d!n!}$ features. 
+
+Kernel trick makes possible to get a result as good as adding features without having to actually having to add them (No combinatorial explosion).
+
+Another approach to tackle non linear problems is to add features but this time computed using a similarity function that measures how much each instances resembles a particular landmark. The Gaussian Radial Basis function (RBF) is one possible similarity function.
+
+Both the similarity and the polynomial method can be used by any Machine Learning algorithm but it may be computationally very expensive. However, the kernel trick works its magic because you can gt the result of many similar features without having to add them.
+
+%kernel poly and degree,C vs kernel rbf and gamma,C
+Gamma is a regularization parameter (similar to C), if model overfitting, reduce gamma if under-fitting increase gamma.
+
+Which kernel use? As a rule of thumb start with the linearSVC (much faster than SVC(kernel="linear")), RBF works well if not too large database, and if you have spare time try x-validation and grid search.
+
+SVM regression is the same as SVM classification but rather than trying to fit the widest street between the two classes reducing the number of violations, in Regression we try to fit as many instances as possible ON the street while limiting margin violations (off the street). The width of the street if controlled by the hyperparameter $\epsilon$ 
+LinearSVR, to tackle non linearity can used kernelized model (polynomial kernel etc)
+
+
+\paragraph*{Multi Layer Perceptron}
+% A. Geron chapter 10
+Birds inspired how to fly, plants inspired velcro and the brain inspired ANN.
+Some researchers have argued that we should drop the biological analogy all together, it has been demonstrably pernicious, for example, the activation function of ANN was supposed to be step function or sigmoid but a function as effective and simple like "relu" toke too long to be tested, just because it sound more biologically plausible to use sigmoid. %pg 289
+
+The decision boundary of each output neuron is linear, so Perceptrons are incapable of learning complex patterns (just like LR classifiers). However if the training instances are linearly separable, the Perceptron convergence theorem shows that Perceptron would converge to a solution (generally not unique, when data are linearly separable there is an infinity of hyperplanes that can separate them).
+
+Limitations of Perceptrons can be eliminated just via stacking multiple Perceptrons.
+The resulting ANN is called Multi Layer Perceptron (MLP).
+
+Backpropagation training algorithm was introduced in 1986 \cite{rumellhart1986learning}, in short it is simply Gradient Descent using an efficient techniques for computing the gradients automatically (this technique was actually independently invented several times by various researchers in different fields, starting with P. Werbos in 1974.). 
+%https://en.wikipedia.org/wiki/Paul_Werbos
+In just 2 passes through the network, ff and back, the backprop. algo. s able to compute the gradient of the network's error with regard to every model parameter, that is to say, it can find how each weight and bias can be tweaked in order to reduce the error. Once it has the w and b it performs a regular GD step, and the whole process is repeated until the network converges to the solution.
+
+It handles one mini-batch at a time (for example containing 32 instances each), and it goes through the full training set multiple times. Each pass is called an epoch.
+
+In essence this is how the Backprop algo works: for each training instance, the algo makes a prediction (forward pass), measures the error (loss function), the goes to each layer in reverse to measure the error contribution from each connection reverse pass) and finally tweaks the connection weights to reduce the error (GD step)
+So, forward pass to make a prediction, backward pass to compute the contribution of each connection to the error and finally GD pass to adjust the connections so in the next forward step we reduce the error.
+Initiallitation is key, if we init all weights and biases as 0, then all neurons in a given layer will be perfectly identical (output is the weighted sum of the input if the w is 0 the o is 0) and backprop will affect them in the same way because they will have the same identical contribution to the error, so if you initialize all to 0 even if you have millions of neurons is like having only one! because they will all act identically!
+It is required to initialize randomly to make the symmetry and let backprop to do its work.
+An important contribution of \cite{rumellhart1986learning} was replacing the step function by the logistic function. The step function contains only flat segments so there is no gradient to work with (GD cannot move in a flat surface!) while logistic function has a well defined nonzero derivative everywhere, allowing GD to make progress at every step. Backprop works well also with tanh, relu, etc.
+ReLu is not differentiable at 0 this could make GD bounce around but it is fast to compute and most importantly avoids the problem of vanishing/explosion gradients because ReLu does not have a maximum value it cant saturate (as logistic or tanh do).
+
+Note that we need non linear activation function because otherwise even a deep stack of layers will be the same as a single layer (a chain of linear transformation is still linear!) the activation function is how we get non linearity and solve complex problems!
+
+
+For Regression, contrary to classification, you don't need to use any activation function for the output neurons, so they are free to output any range of values,however f you want only + can use relu. If a specific range is required can scale the labels to the appropriate range (0,1) for  \emph{logistic} or (-1,1) for \emph{tanh}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Bibliography
+\bibliography{../bibliography-jgr/bibliojgr}
+
+\end{document}

@@ -1,0 +1,384 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage{UF_FRED_paper_style}
+
+\usepackage{lipsum}  %% Package to create dummy text (comment or erase before start)
+
+%% ===============================================
+%% Setting the line spacing (3 options: only pick one)
+% \doublespacing
+% \singlespacing
+\onehalfspacing
+%% ===============================================
+
+\setlength{\droptitle}{-5em} %% Don't touch
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SET THE TITLE
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TITLE:
+\title{The Buschke Integral: A new clinically validated measure for memory assessment
+%\thanks{Selected Paper prepared for presentation at the 201X Agricultural \& Applied Economics Association Annual Meeting}
+}
+
+% AUTHORS:
+\author{Jaime G\'omez-Ram\'irez\\% Name author
+    %\href{mailto:firstauthor@ufl.edu}{\texttt{firstauthor@ufl.edu}} %% Email author 1 
+\and Marina \'Avila Villanueva\\% Name author
+    %\href{mailto:secondauthor@ufl.edu}{\texttt{secondauthor@ufl.edu}} %% Email author 2
+\and Javier Quilis Sancho\\% Name author
+    %\href{mailto:secondauthor@ufl.edu}{\texttt{secondauthor@ufl.edu}}
+\and Miguel \'Angel Fern\'andez-Bl\'azquez\\% Name author
+    %\href{mailto:thirdauthor@ufl.edu}{\texttt{thirdauthor@ufl.edu}}%% Email author 3
+%\and Forth Author\\% Name author
+%    \href{mailto:forthuthor@ufl.edu}{\texttt{forthuthor@ufl.edu}}%% Email author 4
+    }
+    
+% DATE:
+\date{\today}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\setstretch{.8}
+\maketitle
+% %%%%%%%%%%%%%%%%%%
+\begin{abstract}
+Here provide a derivative measure of the B. test, which conceptually is superior to B. aggegates in predicting MCI. Furthermore we study how bi (the new B.) correlates with MCI using bnoth linear and non linear analysis. Finally we build a classifier to predict MCI conversion using bi.
+
+ \noindent
+\textit{\textbf{Keywords: }%
+cognition; memory; mild cognitive impairment; Buschke test.} \\ %% <-- Keywords HERE!
+\noindent
+\textit{\textbf{JEL Classification: }%
+Q12; C22; D81.} %% <-- JEL code HERE!
+
+\end{abstract}
+}
+
+
+% --------------------
+\section{Introduction}
+% --------------------
+%\subsection*{Problems and Background}
+
+%https://books.google.es/books?id=jQ7n4QVw7-0C&pg=PA713&lpg=PA713&dq=buschke+test+wikipedia&source=bl&ots=F78ZTEKu-1&sig=ACfU3U0ocoek6H1OU2foBn0toFOHxXHnCQ&hl=en&sa=X&ved=2ahUKEwjjuPbsi4HpAhU-AmMBHUyVB-EQ6AEwBHoECAoQAQ#v=onepage&q&f=false
+The Buschke Selective Reminding Test (SRT) \cite{buschke1973selective}, \cite{buschke1974evaluating} measures verbal learning an memory using a multiple trial list learning paradigm \cite{strauss2006compendium}. The test involves reading to the subject a list of titems and then having the subject to recall as many of these words as possible. Each subsequent learnign trial involves the selectiuve presentation only of those words that were not rememberred in the immediately precedent trial.
+The test distinguishes between short and long term memory.
+MAF: Test description, time and scoring.
+
+% Factors that affect SRT
+The demographic effects of the test are decline of SRT with advancing age, while reognition scores tend to be less affected by age. There seem to be differences also in age, with females performing better than males however age accounts for 10 times the variance is SRT performance predicted by gender alone \cite{larrabee1988normative}.
+
+IQ is moderately related to SRT \cite{sherman1995construct}, the influence of education is inconsistent with conflicting results \cite{campo2004normative}.
+
+LTS: if a word is recalled in tow consecutive trials is assumed to have entered long term storage LTS. Short term recall STR is when recalls a word that has not entered LTS 
+
+The SRT is popular because it purports to parcel verbal memory into distinct processes (LTR, STR). According the B's definition a word has entered into LTS if it has been successfully recalled in two sucessive trials.
+
+\cite{westerveld1994assessment} suggested that use of the mean or the better of two baseline assessments minimizes error variance, thereby enhancing interpretation of change. Alternatively, given that Total Recall scores generally are less variable and
+that SRT scores appear to measure a single construct, examiners may choose to rely on Total Recall scores \cite{westerveld1994assessment}.
+The total number of words recalled on all trials through the test is recommended by as a measure of learning. 
+
+Modest correlations have been found between SRT and other tests (CVLT, RAVLT, and WMS) of verbal learning and memory \cite{macartney1988intercorrelation}, \cite{schear1989examination}, \cite{westerveld1994assessment}.
+
+SRT has been used on a wide variaety of clinical conditions. For example to asses memory functioning after head injury \cite{paniak1989recovery}. MS \cite{beatty1996memory} Parkinsons \cite{kuzis1999explicit}, there is also evidence of subjects with mood disrders eg combat-related PTSD, schozophrenia or depression perform poorly on the SRT \cite{bremner1993deficits}; \cite{ruchinskas2000neuropsychological}; \cite{sabe1995dissociation}.
+
+Performance on the SRT is sensitive to dementia. However, \cite{sliwinski1997effect}, \cite{sliwinski2003optimizing} found that age and education corrected SRT scores have 28pc lower sensitivity than that of uncorrected scores. 
+
+Correlations found in left temporal lobe, for example \cite{sass1990verbal} showed SRT scores correlated with hippocampal pyramidal cell density obtained from excie tissue from the left, but not the right hippocampus of left speech dominant adults. But the SRT should not be used by itself to rpedict left temporal lobe normality. 
+The test is useful to distinguishing normal adults from demented elderly individuals \cite{campo2003discrimination} \cite{kuzis1999explicit} \cite{larrabee1985sensitivity} For example, patients with AD recalled fewer words on Trial 1; overall and entered fewer items innto LTM. \cite{masur1989distinguishing} noted that measured of LTR were most valid in distinguishing mild dementia from normal aging.
+\cite{masur1990predicting} showed that SRT as a preclinical indicator of the development of dementia, using a modified SRT procedure (6 trials, delayed recall and recognition after 5 min period of distraction), reported recall scores obtained 1 to 2 years before diagnosis were the measures best able to predict dementia  (47pc and 44pc respecvtively sensitivity)
+
+
+The topic of the Memory Tests, in particular de B. test. 
+What are they?  
+
+Different types of Memory Tests. 
+
+Advantages and inconvenients. 
+
+Why B. is so widely used.
+
+Problem addressed: improved the bi and show that it realtes to MCI and can be used to predict, or at least is not worse than bi.
+Objective: Show that the new measure, bi. is conceptually superior than B. aggregate or statistics, and that bi is not worse in terms of correlation (linear/ non linear) and prediction using SVC, Boosting etc than B.
+
+How to assess memory performance?
+\begin{itemize}
+  \item Assessment of Explicit or episodic memories 
+  \begin{itemize}
+    \item Wechsler memory scale(WMS) it has been critizied
+    \item Buschke Selective Reminding Procedure, more sophisticated than WMS, the subject attempts to learn a list a word list across several (3) trials. It allows generation of a variety of scores (sum recall, LTretrieval, ST retrieval ...). The popularity resides in the reduced testing time, word list learning may be better than story recall and separation between retrieval and enter in formation into long term store. Among the criticism is the B. is more a procedure than a test per se (the word list, number of words and number of trials vary widely). Furthermore, B assumes that if a subject fails to to recall a word that has been previosuly recalled in LTM the retrieval failure is a recall failure
+  \end{itemize}  
+  \item Explicit or Implicit memories (preserved in amnesia)
+    \begin{itemize}
+      \item  Sentence puzzle completion
+    \end{itemize}
+\end{itemize}  
+There are many issues that the memory test assessment elude, for example Metamemory and confabulation. Metamemory is the knowledge one posses about the functioning of the human memory system (for example, if one is using Anki (Hermann Ebbinghaus theory of retention training)). Confabulation is poorly understood, intrusions on list learning may be related to confabulation.
+
+The Buschke memory test with free and cued recall is commonly used to assessing cognitive functioning. The Buchske test is of easy realization and can be performed by participants with different levels of impairment and clinical conditions \cite{o200212}, \cite{leitner2017comparison}. The test was originally designed to asses long-term storage (LTS), retrieval from long-term storage (LTR), and recall from short-term storage (STR) \cite{buschke1973selective}.
+
+
+%\citet{Hardaker2004} % Example of citation. Erase before use
+
+% --------------------
+\section{Methodology}
+% --------------------
+
+\subsection*{Conceptual}
+The Buschke test in the \emph{Vallecas Project} consists in asking the subject to recall a list of words in three occasions separated by distracting periods. First, the experimenter reads a list of 16 words and the subject is immediately asked to recall as many words as possible. Next, the subject is distracted with an interference test to be asked again to recall the original 16 words, the subject is distracted again with another interference test to be asked for the third time to recall the original 16 words.
+
+The score consists in three numbers each computes the number of words that the subject correctly recalled at each time. In order to asses retrieval from short-term storage both the total number of items and the increase/decrease in the scores need to be considered. Two subjects with identical aggregate score could have very different recalling. For example, let us say that we perform the Buschke test in two subjects, subject A and subject B. Subject A recalls 12, 14 and 15 words at each time and subject B has for the same test a score of 15, 14 and 12, both subjects have recalled the same total number of items (41) but memory retention is very different. Subject B shows no memory retention (a decrease in the number of recalled items) while subject A does consolidate her memory (an increase in the number of recalled items).
+It is evident, then, that in order to have an unique score from the three scores described we can't just aggregate the scores since we would be missing whether the subjects recalls or forgets which is what the Buschke memory test is essentially testing for. In order to capture this information we need to take into account whether the scores increase, decrease or is stationary.
+
+%We have defined a model that brings together the aggregate of recalled items and the slope of the curve described by the scores at each trial. 
+From calculus we know that the area under a curve between two points can be found by doing a definite integral between the two points. 
+
+\begin{equation}
+\int_{x=a}^{x=b}f(x)dx
+\label{eq:defint}
+\end{equation}
+
+Coming back to our original problem, we need to calculate not only the area between the interval (a,b) corresponding to the first and the third recall scores, but also the quantity defined by the definite integral between the first and the second scores $(a,h)$ and the quantity defined by the definite integral between the second and the third scores $(h,b)$.
+\begin{equation}
+S1= \int_{a}^{h}(f(x) - f(a))dx ; S2= \int_{h}^{b}(f(x)-f(h))dx)
+\label{eq:s1s2}
+\end{equation}
+%The three scores in the Buschke are defined in the space of the positive integers, $x \in + \mathbb{Z}^3$, the area under the curve $y = f(x)$ between two points $x=a$ and $x=b$ is the integral between the limits of $a$ and $b$ which gives us the area defined by the region $f(x)$ and the boundaries a and b.
+
+Thus, the quantity $B$ we want to compute is a function of the three quantities mentioned $S,S1,S2$ above. 
+\begin{equation}
+%S = f(\int_{a}^{b}f(x)dx + \int_{a}^{h}(f(x) - f(a))dx + \int_{h}^{b}(f(x)-f(h))dx)
+B = g(S,S1,S2)
+\label{eq:buk}
+\end{equation}
+where $S$ is the area under the curve which gives us an aggregate of the number of items recall for teh three trials. $S1$ and $S2$ , contrary to S which is always positive, can be positive, negative of or 0. For the sake of the argument, let us rename [a,h,b] as [1,2,3] \footnote{The cardinal value of the set elements, in this case 1,2,3, is indifferent for our purpose as long as they are equidistant.}to represent an ordered set of time points at each a trail is performed and the number of recalled items is collected. For example, if the number of items recalled at each time is [12, 14, 13], according to \ref{eq:s1s2} since $f(2) > f(1)$ then $S1>0$ and $f(3) < f(2)$ then $S2<0$. Thus, S denotes a surface and is alwasy positive but S1( and S2) is negative if the curve $f(x)$ is decreasing, positive if $f(x)$ is increasing or zero in case $f(x)$ remains constant across trials.
+
+
+%Let us see this with an example, for simplicity's sake we assume that the scores are $[0,1,2]$. 
+Figure \ref{fig:b} shows the value of $B$ in three different examples, in each case the area is identical, 2, for a total maximum of 4 but $B$ varies with the slope of the learning curve. On the left, figure \ref{fig:b}-a,
+$B=f(S)$ is function only of the area cover by the curve because the curve is flat, so $S1=S2=0$. 
+On the middle figure, \ref{fig:b}-b, the score $B=F(S,S1,S2)$ with $S1,S2>0$ because the curve is increasing (positive slope), $S=2, S1=1/2, S2=1/2$. Finally, the figure on the right side, \ref{fig:b}-c, $S=2, S1=1/2, S2=1/2$, the slope in [1,2] is [positive, $S1>0$ but in [2,3] is negative,$S2<0$ which conveys the idea the subject is not consolidating memory.      
+  
+%https://matplotlib.org/gallery/showcase/integral.html#sphx-glr-gallery-showcase-integral-py
+\begin{figure}[H]
+        \centering
+        \includegraphics[keepaspectratio, width=\linewidth]{figures/fig_buschkewitheqs}
+        \caption{The figure shows the computation of the \emph{Buschke Integral} scores in three scenarios. On the left figure (a) there is no learning because the subject recalls the same number of items each time ($f(x)=1, x=[0,1,2]; S=2, S1=S2=0$). On the middle figure (b) the subjects learns ($f(x)=x, x=[0,1,2]; S=2, S1=1/2, S2=1/2$ and on the figure on the right figure (c) the subject forgets items ($f(x)=2-x, x=[0,1,2], S2=-1/2$). The maximum score not (shown) is $S=4$ that corresponds with the subject recalling all the two items at each time ($f(x)=2, x=[0,1,2], S=4$).} 
+        \label{fig:b}
+\end{figure}
+
+%Figure \ref{fig:b} calculates the surface of the trapezoids, it is also possible to interpolate and calculate the surface defined by the spline within the x and y axis.
+One advantage of the \emph{Buschke Integral} score $S$ defined here is that it gives us a new scale of memory health condensed in one single number. This allows us to parcel the space of subjects in a larger number of meaningful categories beyond the converter versus no converter classification. The new metric upper bound is 32 (max score per trial $(16)\times (3-1)$ number of points -1) and the minimum 0.
+
+We can now define the model that relates MCI conversion with B and other related variables
+
+\begin{equation}
+MCI = B + C
+\label{eq:mci_b_o}
+\end{equation}
+where $B$ is the new Buschke measure defined in Equation \ref{eq:buk} and $C$ is a set of variables of interest, for example, age, sex, shool years etc.
+
+\paragraph*{Logistic Regression }
+%https://realpython.com/logistic-regression-python/
+Logistic regression is a linear classifier,$y_i = b_0 + \sum w_i x_i $ where $w_i$ are the predicted weights or just coefficients.
+Logistic regression determines the best predicted weights $w_i$ such that the LR function $p(x) = 1/(1 + e^{-f(x)})$ is as close as possible to all actual responses $y_i, i=1..n$, where $n$ is the number of observations. 
+The process of calculating the best weights using available observations is called model training or fitting.
+The goal is to find the logistic regression function $p(x)$ such that the predicted responses $p(x_i)$ are as close as possible to the actual response $y_i$ for each observation $i = 1 ...n$. 
+Once you have the logistic regression function $p(x)$, you can use it to predict the outputs for new and unseen inputs, assuming that the underlying mathematical dependence is unchanged.
+
+Thus, we build the logit function for the B $p(x) = w_0 + w_1 x_1 + w_2 x_2 + w_3 x_3 $ where $w_1$ is the integral, $w_2$ the definite integral between points 12 and $w_3$ the definite integral between points 23 as explained in Figure. Similarly we for the C variables.
+
+To get the best weights, you usually maximize the log-likelihood function (LLF) for all observations. We maximize $\sum_{i} (y_i(\log(p(x_i))) + (1-y_i)(\log(1 - p(x_i))))$ 
+
+
+
+%Calculate the DTW between S and a conversion or memory indicator across years, for example the ICV or the hippocampal volume. 
+%Plot the distribution of S $\mu = 16.37, \sigma=5.1770$, get the left tail $\mu + n*\sigma$ (worst recallers) and the right tail (best recallers) and study neurophysiological differences. Look at, hippocampal siuze, connectivity. YS: WHERE to look at
+
+%-plot the kde of bus int, use sns pairplot when i have the hippo sizes script
+%-correlation with conversion
+%- kullback leiber of distribution inter years compared with other measures (sum etc) see if distance is smaller ion. b int
+%- correlation with brain hippocampus
+
+%https://kids.frontiersin.org/article/10.3389/frym.2017.00071
+%https://www.scientificamerican.com/article/does-size-matter-for-brains/
+%Rehearsal is the process where information is kept in short-term memory by mentally repeating it. When the information is repeated each time, that information is reentered into the short-term memory, thus keeping that information for another 10 to 20 seconds (the average storage time for short-term memory)
+% --------------------
+\section{Results}
+% --------------------
+We are interested in building a logistic regression such that
+
+\[y_n = B_1 + C_1\] that is predict MCI for year n, given B and C variables in year 1. We need also to perform the sanity check \[ y_i = B_i + C_i\], at least for $i=1$ and $i=n$, that is, B (and other) should be a good predictor of the diagnoses.
+
+\paragraph*{Closed Form expression}
+%https://stats.stackexchange.com/questions/70848/what-does-a-closed-form-solution-mean
+An equation is said to be a closed-form solution if it solves a given problem in terms of functions and mathematical operations from a given generally accepted set.  An example of a closed form solution in linear regression would be the least square equation.
+Most estimation procedures involve finding parameters that minimize (or maximize) some objective function. For example, with OLS, we minimize the sum of squared residuals.Sometimes this problem can be solved algebraically, producing a closed-form solution. With OLS, you solve the system of first order conditions and get the familiar formula (though you still probably need a computer to evaluate the answer).
+Assuming that the model is linear in B and C we obtain the estimates of the w and z parameters, w and z and we therefore have the closed expression that relates MCI conversionn to the new B measure and additional demographic basic parameters (age, sex, depression and years of schooling).
+
+\subsection*{Model performance}
+We compare the model performance, accuracy, precision  etc with dummy classfiers and also with opther models , notably a model that includes old B , we can also can select the C variables that get the best resulyts. For example include scd etc.
+
+\textbf{LogisticRegressionCV}
+%This class implements logistic regression using liblinear, newton-cg, sag of lbfgs optimizer.
+%For the grid of Cs values and l1_ratios values  is selected by the cross-validator StratifiedKFold, but it can be changed using the cv parameter
+%Hyperparameters: Csint or list of floats, default=10 Each of the values in Cs describes the inverse of regularization strength. If Cs is as an int, then a grid of Cs values are chosen in a logarithmic scale between 1e-4 and 1e4. Like in support vector machines, smaller values specify stronger regularization.
+%cv int or cross-validation generator:The default cross-validation generator used is Stratified K-Folds. If an integer is provided, then it is the number of folds used
+%dual default dual=False when n_samples > n_features.
+%penalty{‘l1’, ‘l2’, ‘elasticnet’}, default=’l2’ The ‘newton-cg’, ‘sag’ and ‘lbfgs’ solvers support only l2 penalties. ‘elasticnet’ is only supported by the ‘saga’ solver.
+%scoring str default 'accuracy 
+%solver{‘newton-cg’, ‘lbfgs’, ‘liblinear’, ‘sag’, ‘saga’}, default=’lbfgs’ For multiclass problems, only ‘newton-cg’, ‘sag’, ‘saga’ and ‘lbfgs’ handle multinomial loss; ‘liblinear’ is limited to one-versus-rest schemes
+%max_iterint, default=100  Maximum number of iterations of the optimization algorithm.
+%class_weightdict or ‘balanced’, default=None
+%refitbool, default=True. If set to True, the scores are averaged across all folds, and the coefs and the C that corresponds to the best score is taken, and a final refit is done using these parameters. Otherwise the coefs, intercepts and C that correspond to the best scores across folds are averaged.
+
+
+\subsection*{Deep learning}
+Rather than aspire at getting a closed expression, which let us not forget depends upon the unrealistic asumption that the functiion is lionear on B and C, we can build a MLP or SCV to study the non linear relationship between the iunoput and the output.
+
+
+
+\subsection*{}
+
+
+\subsection*{Correlation with conversion}
+
+%Once we have justify the conceptual soundness of the \emph{Buschke Integral} score we need to study the clinical utility of term, to do so we will take advantage of the large dataset \emph{Vallecas Project}.We compare the correlation between conversion to MCI and S, and single values of the Buschke test and other cognitive performance test. We also compare S with other aggregates of the Buschke test like the sum or the arithmetic and the geometric mean.etc.).
+%YS: Here df.corr() and df.distance between all the variables defined in above equation: MCI, B and C(sex, age, years school, etc.).
+
+
+Next we need to build a system -classifier- that learns the function f, we use SVM and MLP.
+f(b) = MCI whatever it is we approximate it with MLP (Universal Approximator Theorem), the input should include Age, SCD and other features that can help improve the performance of the classifier.
+
+\subsection*{Closed Formula}
+If we assume that MCI is linear in B and C, 
+\begin{equation}
+MCI = g(B) + h(C) = \sum_{i=1}{l}w_{i}B_{i} + \sum_{k=1}{m}z_{k}C_{k}
+\end{equation}
+then we can build a logistic regression to minimize the prediction error of MCI from B and C by estimating the optimal set of weigths $w$ and $z$.
+
+
+
+
+% --------------------
+\section{Discussion and Conclusions}
+% --------------------
+
+
+\medskip
+
+\bibliography{../bibliography-jgr/bibliojgr} 
+
+\newpage
+
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=.6]{figures/bivariate_dataset.png}
+    \caption{Example figure.}
+    \label{fig:1}
+\end{figure}
+
+% ==========================
+% ==========================
+% ==========================
+
+
+\end{document}
+
+
+
+
+
+
+\begin{Supplementary Material}
+\paragraph*{Support Vector Classifier to estimate the weights of the new B.Integral}
+
+The equation of the hyperplane is gien by two parameters: a real-valued vector w of same dimensionality as the input vector x and a real number b:
+\begin{equation}
+wx -b = 0
+\end{equation}
+where $wx = w^{1}x^{1} + w^{2}x^{2} + .... w^{d}x^{d}$, where $d$ is the dimensionality of x (and w).
+The predicted label is $y = sign(wx -b)$, the goal of SVM is to leverage the dataset and find the optimal values w and b for parameters w and b. Once the learning algorithm find  the optimal values the model is then
+\begin{equation}
+f(x) = sign(w^*x-b^*)
+\end{equation}
+
+Use SKlearn to identify, via ANOVA, the most important features for classifying (MCI vs non MCI, note that we need to decide if we do it multiclass or not).
+Integral (or area) is the most important feature, the partial derivative par1 and par2 are less important. But we may wan to estimate the optimal weights that will make Integral important, for that we find the optimal weghts that map the hippocampal atrophy, once we have the w that minimize the cost of mapping b. to hippo atrophy, we test if the new variable is the most important for conversion.
+
+We can use logit (problem is linearity) to find ws that minimize the error 
+in $\ w_1x_1 + w_2x_2 + w_3x_3 - \Delta H = 0$. 
+Use SVR to find the decision function.
+
+Use SKlearn to identify, via ANOVA, the most important features for classifying (MCI vs non MCI, note that we need to decide if we do it multiclass or not).
+Integral (or area) is the most important feature, the partial derivative par1 and par2 are less important. But we may wan to estimate the optimal weights that will make Integral important, for that we find the optimal weghts that map the hippocampal atrophy, once we have the w that minimize the cost of mapping b. to hippo atrophy, we test if the new variable is the most important for conversion.
+
+We can use logit (problem is linearity) to find ws that minimize the error 
+in $\ w_1x_1 + w_2x_2 + w_3x_3 - \Delta H = 0$. 
+Use SVR to find the decision function.
+
+The three main processes of memory are encoding, storage and recalling, Within recall psychologists distinguish between free recall, cue recall and serial recall.
+%Ebbinghaus discovered that multiple learning, over-learning, and spacing study times increased retention of information
+We own to Tulving the distinction between episodic and semantic memory, and also the encoding specificity principle which states that a person is more likely to recall information if the recall cues match or are similar to the encoding cues. 
+%ojo literal wikipedia https://en.wikipedia.org/wiki/Recall_(memory)
+The anterior cingulate cortex, globus pallidus, thalamus, and cerebellum show higher activation during recall than during recognition which suggests that these components of the cerebello-frontal pathway play a role in recall processes that they do not in recognition. The specific role of each of the six main regions in episodic retrieval is still unclear, but some ideas have been suggested. The right prefrontal cortex has been related to retrieval attempt;[28][29] the medial temporal lobes to conscious recollection;[30] the anterior cingulate to response selection;[31] the posterior midline region to imagery;[28][31][32][33] the inferior parietal to awareness of space;[34] and the cerebellum to self-initiated retrieval .[35]
+
+There is a number of factors that affect recall: attention, motivation, interference, context, state-dependent memory, gender (Women perform better than males on episodic memory tasks including delayed recall and recognition. However, males and females do not differ on working, immediate and semantic memory tasks.) physical activities
+
+%ojo +-lit from margolin1992cognitive
+Many years ago Lashley \cite{lashley1929brain} set out to find the engram the putative site of memory storage and his failure toi find a specific location (in rats) led him to the conclussion that memories were spatially distributed  throughout the brain. Squire \cite{squire2004memory} pointed out to methodological shortcoming in Lashley's work but in general terms his conclusions are considered valid. One suggestion is that engrams are stored in cerebral cortex near the regions where the stimuli is processed eg visual memories near occipital, auditory components in auditory cortex and so for. 
+
+By exclusion (HM) we know that the memory abilities preserved by amnesic subjects would not be dependent of removed areas (hippocampus, or medial dorsal nucleus). Habit formation is known to be mediated by the amygdala, conditioning of motor responses in the basal ganglia and working memory to frontal and parietal regions \cite{margolin1992cognitive} pg. 178. 
+
+Amnesia or memory disorders can be grouped in terms of etiology or in terms of neuroanatomy. The former we can mention AD, anoxia, etc. In terms of neuroanatomy some have distinguished between hippocampal and diancephalic amnesia (mammalian bodies and or thalamus)
+Where are memories stored in the brain? Broadly speaking a classification can be made:
+\subsection*{The neuroanatomy of memory}
+%https://qbi.uq.edu.au/brain-basics/memory/where-are-memories-stored
+
+
+
+\begin{itemize}
+%\item
+\item Explicit declarative or episodic memories and semantic memories: hippocampus, neocortex and amygdala.
+\begin{itemize}
+  \item Hippocampus is part of the temporal lobe and is where explicit or episodic memories are formed and indexed for later access. (we know this thanks to Henry Molaison who had his medial temporal lobe (hippocampus, amygdala, and enthorinal cortex) surgically removed to treat his epilepsy, rendering him amnesic but with capacity to learn motor tasks)
+  \item Neocrotex is the neural tissue that forms the outside surface of the brain. Transfer from the hippocampus (temporary) to the neocortex (general knowledge) may happen during sleep
+  \item Amygdala is an almond shape structure above the hippocampus and attaches emotional significance to memories, this is why memories associated with grief , shame etc are difficult to forget, characterizing the path amygdala, hippocampus, neocortex may explain how memories are retained. The amygdala not only adds strength to the emotional memory, it also plays a role in forming new memories, specially related to fear. Fearful memories are able to be formed after a few repetitions
+\end{itemize} 
+\item Implicit memories (eg motor) cerebellum and basal ganglia
+  \begin{itemize}
+    \item cerebellum located at the rear base of the brain, important in motor control eg the vestibulo-ocular reflex let us maintain our gaze on a location as we rotate our heads.
+    \item Basal ganglia lying deep within the brain and involved in habit formation, reward processing and learning. They co-ordinate sequences of motor activity, it is the most affected region in Parkinson's. disease
+  \end{itemize}
+\item Short-term working memory prefrontal cortex
+  \begin{itemize}
+    \item Prefrontal cortex seats at the very front of the brain and it is the most recent addiction to the mammalian brain, holding information activates the pFC, there seems to exist a functional separation between left and right sides of the pFC.
+  \end{itemize}  
+\end{itemize}
+
+Note that another classification of memories is Long term memories including Explicit and Implicit and short term memories. Short term (primary or active memory) is the capacity for holding, but not manipulating, a small amount of information in mind in an active, readily available state for a short period of time.  The duration of short-term memory (when rehearsal or active maintenance is prevented) is believed to be in the order of seconds (Miller's law magical number 7 +-2 and more recently Cowan 4+-1.).
+The modal model of memory was developed in the 1960s by Shiffrin and assumed that all memories pass from a short-term to a long-term store after a small period of time. The exact meachanisms by which this transfer occurs is unclear.
+
+One evidence of the existence of short-term store comes from anteroretrogade amnesia which is the inability to learn new facts and episodes, patients with this amnesia (eg HM) have intact its ability to retain small amounts of information over small time scales (30 seconds) but are unable to form long term memories. Other evidence comes from distraction interventions, a distraction may impair memory 3-5 most recently learned words of a list (to be stored in short  term memory) while leaving the recall for words earlier in the list intact (to be stored in long term memory). See, however, \cite{bjork1974recency}, for a criticism of the existence of short term memory using a distractor task. But not everyone agrees that short and long term memories vary independently, the unitary model states that memory is unitary over time scales from milliseconds to years. Admittedly it has been difficult to demarcate the a clear boundary between short and long term memories.
+
+The biological basis STM: stimuli are coded in STM using transmitter depletion, the stimulus activates a spatial pattern of neurons and as they fire they deplete the available neurotransmitters, the pattern of depletion is iconic (WOW!) representing the stimulus functioning as a memory trace. As the neurotransmitters reuptake mechanisms kick in to restore the pre stimulus level, the memory trace decays \cite{grossberg1971pavlovian}.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[keepaspectratio, width=.5\linewidth]{figures/memory_types}
+        \caption{Memory types under the modal or multi-store or Atkinson-Shiffrin model. Alternatively, the Fergus Craik and Robert Lockhart in 1972, and posits that memory recall, is a function of the depth of mental processing, on a continuous scale from shallow (perceptual) to deep (semantic). Under this model, there is no real structure to memory and no distinction between short-term and long-term memory. Another classification is the to Multiple Trace Theory, long-term episodic memories are stored in hippocampus, so mild AD patients, even MCI, will lose these kind of "long-term" memories. Long term semantic memories will be lost in parallel with neocortex neuron death.
+        %http://www.human-memory.net/types.html
+        } 
+        \label{fig:b}
+\end{figure}
